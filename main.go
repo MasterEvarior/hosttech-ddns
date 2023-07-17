@@ -6,6 +6,7 @@ import (
 )
 
 func main() {
+
 	for true {
 		ip, err := GetPublicIp()
 		if err != nil {
@@ -14,7 +15,13 @@ func main() {
 		}
 		log.Printf("Got public IP %s", ip)
 
-		UpdateHosttechRecords(ip)
+		doesExist, record := DoesRecordAlreadyExist()
+
+		if doesExist {
+			UpdateRecord(ip, record)
+		} else {
+			CreateNewRecord(ip)
+		}
 
 		log.Printf("Waiting for next update...")
 		time.Sleep(1200 * time.Second)
