@@ -10,7 +10,7 @@ COPY *.go ./
 RUN CGO_ENABLED=0 GOOS=linux go build -o /hosttech-ddns
 
 #Move binary to a leaner image
-FROM gcr.io/distroless/base-debian11 AS release-page
+FROM gcr.io/distroless/base-debian12 AS release-page
 WORKDIR /
 COPY --from=build-stage /hosttech-ddns /hosttech-ddns
 USER nonroot:nonroot
