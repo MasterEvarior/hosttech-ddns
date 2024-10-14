@@ -3,6 +3,8 @@ package main
 import (
 	"log"
 	"time"
+	"strings"
+	"os"
 )
 
 func main() {
@@ -15,14 +17,17 @@ func main() {
 		}
 		log.Printf("Got public IP %s", ip)
 
-		doesExist, record := DoesRecordAlreadyExist()
+		domains := strings.Split(os.Getenv("DOMAINS"), (","));
+		for _, domain := range domains {
+			doesExist, record := DoesRecordAlreadyExist(domain)
 
-		if doesExist {
-			UpdateRecord(ip, record)
-		} else {
-			CreateNewRecord(ip)
+			if doesExist {
+				UpdateRecord(ip, record)
+			} else {
+				CreateNewRecord(ip, domain)
+			}
 		}
-
+		
 		log.Printf("Waiting for next update...")
 		time.Sleep(1200 * time.Second)
 	}

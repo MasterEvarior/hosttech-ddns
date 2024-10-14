@@ -8,8 +8,8 @@ import (
 	"os"
 )
 
-func DoesRecordAlreadyExist() (bool, libdns.Record) {
-	record, err := getRecord()
+func DoesRecordAlreadyExist(domain string) (bool, libdns.Record) {
+	record, err := getRecord(domain)
 
 	if err == nil && record.ID != "" {
 		return true, record
@@ -38,15 +38,15 @@ func UpdateRecord(ip string, existingRecord libdns.Record) {
 	}
 }
 
-func CreateNewRecord(ip string) {
-	log.Printf("Creating a new A record for zone %s, domain %s with IP %s", os.Getenv("ZONE"), os.Getenv("DOMAIN"), ip)
+func CreateNewRecord(ip string, domain string) {
+	log.Printf("Creating a new A record for zone %s, domain %s with IP %s", os.Getenv("ZONE"), domain, ip)
 
 	provider := hosttech.Provider{APIToken: os.Getenv("API_KEY")}
 	_, err := provider.AppendRecords(context.Background(), os.Getenv("ZONE"), []libdns.Record{
 		{
 			ID:       "",
 			Type:     "A",
-			Name:     os.Getenv("DOMAIN"),
+			Name:     domain,
 			Value:    ip,
 			TTL:      3600,
 			Priority: 0,
@@ -57,7 +57,7 @@ func CreateNewRecord(ip string) {
 	}
 }
 
-func getRecord() (libdns.Record, error) {
+func getRecord(domain string) (libdns.Record, error) {
 	provider := hosttech.Provider{APIToken: os.Getenv("API_KEY")}
 	records, err := provider.GetRecords(context.Background(), os.Getenv("ZONE"))
 
@@ -67,7 +67,7 @@ func getRecord() (libdns.Record, error) {
 	}
 
 	for _, record := range records {
-		if record.Type == "A" && record.Name == os.Getenv("DOMAIN") {
+		if record.Type == "A" && record.Name == domain {
 			return record, nil
 		}
 	}

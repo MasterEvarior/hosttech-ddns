@@ -13,12 +13,12 @@ To run the docker container, you have to give it a couple of environment variabl
 ```shell
 docker run -d \
   -e ZONE=example.com \
-  -e DOMAIN=sub \
+  -e DOMAINS=sub1,sub2 \
   -e API_KEY=eyJO93mopdns0JA \
   --name hosttech-ddns \
   ghcr.io/masterevarior/hosttech-ddns:latest
 ```
-This will update the IP address for the domain `sub.example.com`. 
+This will update the IP address for the domains `sub1.example.com` and `sub2.example.com`. 
 
 ## Development, improvements and more
 Pull requests, improvements and issues are always welcome.
