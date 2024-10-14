@@ -1,6 +1,6 @@
 name: 'Release'
 on:
-  registry_package:
+  release:
     types: [published]
 env:
   REGISTRY: ghcr.io
