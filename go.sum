@@ -1,6 +1,6 @@
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
-github.com/libdns/hosttech v1.0.4 h1:Z0m2CGGvaXi5f1nYhc0wVbgRppeGhUdkOwoUYJssD3Y=
-github.com/libdns/hosttech v1.0.4/go.mod h1:L+Jyl3yFZMcoiPwPu6o+HRyAlv3yssD3DTu5OC+YwL8=
+github.com/libdns/hosttech v1.1.0 h1:1fhhiUXtghglO4l9pQx3tMiHdZ9b+fMFIEq+jqflF+A=
+github.com/libdns/hosttech v1.1.0/go.mod h1:L+Jyl3yFZMcoiPwPu6o+HRyAlv3yssD3DTu5OC+YwL8=
 github.com/libdns/libdns v0.2.2 h1:O6ws7bAfRPaBsgAYt8MDe2HcNBGC29hkZ9MX2eUSX3s=
 github.com/libdns/libdns v0.2.2/go.mod h1:4Bj9+5CQiNMVGf87wjX4CY3HQJypUHRuLvlsfsZqLWQ=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
