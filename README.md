@@ -1,6 +1,9 @@
 # Hosttech DDNS
 ![example workflow](https://github.com/MasterEvarior/hosttech-ddns/actions/workflows/test.yaml/badge.svg) ![example workflow](https://github.com/MasterEvarior/hosttech-ddns/actions/workflows/release.yaml/badge.svg)
 
+> [!WARNING]  
+> As I no longer use Hosttech, this project is no longer maintained and is now archived.
+
 This small docker container acts as a [dynamic DNS](https://en.wikipedia.org/wiki/Dynamic_DNS) implementation for [Hosttech](https://hosttech.ch).
 
 ## Build
